@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projekt: Optymalizacja wydajności strony webowej</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 820px; margin: 40px auto; padding: 0 16px; line-height: 1.55; color: #1f2328; background: #fff; }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; }
+  h2 { margin-top: 2rem; border-bottom: 1px solid #d0d7de; padding-bottom: 4px; }
+  .meta { color: #656d76; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  td:empty::after { content: "\00a0"; }
+  code { background: #f6f8fa; padding: 1px 4px; border-radius: 4px; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<h1>Projekt: Optymalizacja wydajności strony webowej</h1>
+<p class="meta">2026-10-19</p>
+
+<h2>Technologie</h2>
+<table>
+<thead><tr><th>Element</th><th>Wybór</th></tr></thead>
+<tbody>
+<tr><td>Framework</td><td>React 19 + Vite</td></tr>
+<tr><td>Język</td><td>TypeScript</td></tr>
+<tr><td>Routing</td><td>React Router </td></tr>
+<tr><td>Serwer testowy</td><td>Lokalny serwer Node.js z gzipem</td></tr>
+</tbody>
+</table>
+
+<h2>Zespół</h2>
+<table>
+<thead><tr><th>Imię i nazwisko</th><th>Nr albumu</th></tr></thead>
+<tbody>
+<tr><td>Adrian Skrzypnik</td><td>272562</td></tr>
+<tr><td>Paweł Krzyszczak</td><td>272379</td></tr>
+</tbody>
+</table>
+
+<h2>Opis projektu</h2>
+<p>Tworzymy prostą stronę typu galeria / sklep z dużą liczbą zdjęć, która w wersji bazowej jest celowo nieoptymalna. Na niej wdrażamy kolejno trzy techniki optymalizacji: nowoczesne formaty obrazów, lazy loading oraz code splitting. Każdą wersję mierzymy tymi samymi narzędziami i w tych samych warunkach, a wyniki porównujemy z wersją bazową.</p>
+
+<h2>Testowane techniki</h2>
+<table>
+<thead><tr><th>Technika</th><th>Co zmieniamy</th><th>Na którą metrykę powinna wpłynąć</th></tr></thead>
+<tbody>
+<tr><td>1. Formaty i rozmiary obrazów</td><td>JPG/PNG → WebP / AVIF, <code>srcset</code> z kilkoma rozdzielczościami, kompresja (np. <code>vite-imagetools</code> lub Squoosh)</td><td>Rozmiar strony, LCP</td></tr>
+<tr><td>2. Lazy loading</td><td><code>loading="lazy"</code> dla obrazów poniżej pierwszego ekranu, <code>fetchpriority="high"</code> dla głównego obrazu</td><td>Liczba i rozmiar żądań przy starcie, LCP, czas pełnego załadowania</td></tr>
+<tr><td>3. Code splitting</td><td><code>React.lazy()</code> + <code>Suspense</code> dla tras i ciężkich komponentów, analiza bundla (<code>rollup-plugin-visualizer</code>)</td><td>Rozmiar JS (początkowy bundle), TBT, FCP</td></tr>
+</tbody>
+</table>
+<p>Techniki zapasowe: minifikacja i kompresja Brotli/Gzip, cache HTTP, preload fontów, wirtualizacja długich list.</p>
+
+<h2>Narzędzia</h2>
+<p>Używamy dwóch narzędzi. Lighthouse mierzy metryki wydajności wszystkich wersji strony. Do code splittingu dochodzi rollup-plugin-visualizer, który mierzy rozmiar bundla JS bezpośrednio z builda.</p>
+<table>
+<thead><tr><th>Narzędzie</th><th>Do czego</th></tr></thead>
+<tbody>
+<tr><td>Google Lighthouse (Chrome DevTools)</td><td>Główny pomiar wszystkich trzech technik: wynik Performance, Web Vitals, rozmiar i liczba zasobów</td></tr>
+<tr><td>rollup-plugin-visualizer</td><td>Pomiar code splittingu: rozmiar i skład bundla JS (wersja gzip) przed i po podziale na chunki</td></tr>
+</tbody>
+</table>
+<p>Żeby wyniki wersji dało się porównać, testujemy je w tych samych warunkach: profil mobile, łącze Slow 4G (1,6 Mb/s, RTT 150 ms, domyślne w Lighthouse), pusty cache, 5 przebiegów i mediana.</p>
+
+<h2>Metryki</h2>
+<p>Lighthouse mierzy wszystkie metryki z tabeli poza liczbą chunków; visualizer mierzy tylko rozmiar JS i liczbę chunków. Progi „dobrego” wyniku są wg Google.</p>
+<table>
+<thead><tr><th>Metryka</th><th>Co oznacza</th><th>Lighthouse</th><th>Visualizer</th><th>Dobry wynik</th></tr></thead>
+<tbody>
+<tr><td>LCP (Largest Contentful Paint)</td><td>Kiedy pojawia się największy element strony</td><td>✓</td><td>–</td><td>≤ 2,5 s</td></tr>
+<tr><td>FCP (First Contentful Paint)</td><td>Pierwsza widoczna treść</td><td>✓</td><td>–</td><td>≤ 1,8 s</td></tr>
+<tr><td>CLS (Cumulative Layout Shift)</td><td>Przesuwanie się elementów w trakcie ładowania</td><td>✓</td><td>–</td><td>≤ 0,1</td></tr>
+<tr><td>TBT (Total Blocking Time)</td><td>Czas blokowania głównego wątku przez JS</td><td>✓</td><td>–</td><td>≤ 200 ms</td></tr>
+<tr><td>Speed Index</td><td>Jak szybko strona wizualnie się wypełnia</td><td>✓</td><td>–</td><td>≤ 3,4 s</td></tr>
+<tr><td>Rozmiar strony (KB)</td><td>Łączny transfer przy załadowaniu</td><td>✓</td><td>–</td><td>im mniej, tym lepiej</td></tr>
+<tr><td>Rozmiar obrazów (KB)</td><td>Transfer samych obrazów</td><td>✓</td><td>–</td><td>im mniej, tym lepiej</td></tr>
+<tr><td>Rozmiar JS (KB, gzip)</td><td>JS pobrany przy starcie strony</td><td>✓</td><td>✓</td><td>im mniej, tym lepiej</td></tr>
+<tr><td>Liczba żądań HTTP</td><td>Ile plików pobiera strona przy starcie</td><td>✓</td><td>–</td><td>im mniej, tym lepiej</td></tr>
+<tr><td>Liczba chunków JS</td><td>Na ile plików podzielono kod</td><td>–</td><td>✓</td><td>wynik pomocniczy</td></tr>
+</tbody>
+</table>
+<p>Pominęliśmy Performance Score, bo jest wynikiem zbiorczym z metryk, które podajemy osobno. INP też pominęliśmy, bo wymaga interakcji prawdziwego użytkownika i Lighthouse nie zmierzy go przy zwykłym załadowaniu strony. Wyniki zbierzemy w tabeli „wersja × metryka × narzędzie” i pokażemy zmianę względem wersji bazowej w %.</p>
+</body>
+</html>

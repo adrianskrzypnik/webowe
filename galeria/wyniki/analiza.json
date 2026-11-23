@@ -1,0 +1,42 @@
+{
+  "v0": {
+    "images": 49,
+    "imagesKb": 6841.7900390625,
+    "heroStartMs": 2584.934000015259,
+    "heroEndMs": 10286.189999938011,
+    "heroKb": 242.806640625,
+    "heroPriority": "High",
+    "heroUrl": "/img/hero.jpg",
+    "lastRequestEndMs": 40476.922999978065
+  },
+  "v1": {
+    "images": 49,
+    "imagesKb": 641.3154296875,
+    "heroStartMs": 2603.4539999961853,
+    "heroEndMs": 3814.832000017166,
+    "heroKb": 39.5029296875,
+    "heroPriority": "High",
+    "heroUrl": "/img/hero-960.avif",
+    "lastRequestEndMs": 8890.536000013351
+  },
+  "v2": {
+    "images": 23,
+    "imagesKb": 3480.1259765625,
+    "heroStartMs": 2609.74899995327,
+    "heroEndMs": 10314.375,
+    "heroKb": 242.806640625,
+    "heroPriority": "High",
+    "heroUrl": "/img/hero.jpg",
+    "lastRequestEndMs": 22148.110000133514
+  },
+  "v12": {
+    "images": 23,
+    "imagesKb": 368.8916015625,
+    "heroStartMs": 2598.445000052452,
+    "heroEndMs": 3808.393000125885,
+    "heroKb": 39.5029296875,
+    "heroPriority": "High",
+    "heroUrl": "/img/hero-960.avif",
+    "lastRequestEndMs": 5977.467000007629
+  }
+}

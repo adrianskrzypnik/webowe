@@ -1,0 +1,116 @@
+{
+  "variant": "v1",
+  "url": "http://127.0.0.1:4300/",
+  "measuredAt": "2026-11-09T13:19:08.697Z",
+  "lighthouseVersion": "13.6.0",
+  "runs": [
+    {
+      "lcpMs": 3780.841,
+      "fcpMs": 2646.361,
+      "cls": 0,
+      "tbtMs": 632.8790000000008,
+      "speedIndexMs": 2821,
+      "pageKb": 858.8994140625,
+      "imagesKb": 624.52734375,
+      "jsKb": 232.5712890625,
+      "requests": 52
+    },
+    {
+      "lcpMs": 3792.399,
+      "fcpMs": 2652.478,
+      "cls": 0,
+      "tbtMs": 636.9189998779298,
+      "speedIndexMs": 2826,
+      "pageKb": 858.8994140625,
+      "imagesKb": 624.52734375,
+      "jsKb": 232.5712890625,
+      "requests": 52
+    },
+    {
+      "lcpMs": 3802.935,
+      "fcpMs": 2650.429,
+      "cls": 0,
+      "tbtMs": 635.8050000000003,
+      "speedIndexMs": 2828,
+      "pageKb": 858.8994140625,
+      "imagesKb": 624.52734375,
+      "jsKb": 232.5712890625,
+      "requests": 52
+    },
+    {
+      "lcpMs": 3782.718,
+      "fcpMs": 2648.335,
+      "cls": 0,
+      "tbtMs": 635.2730000000006,
+      "speedIndexMs": 2821,
+      "pageKb": 858.8994140625,
+      "imagesKb": 624.52734375,
+      "jsKb": 232.5712890625,
+      "requests": 52
+    },
+    {
+      "lcpMs": 3788.26,
+      "fcpMs": 2647.971,
+      "cls": 0,
+      "tbtMs": 635.6970000000001,
+      "speedIndexMs": 2820,
+      "pageKb": 858.8994140625,
+      "imagesKb": 624.52734375,
+      "jsKb": 232.5712890625,
+      "requests": 52
+    }
+  ],
+  "summary": {
+    "lcpMs": {
+      "median": 3788.26,
+      "min": 3780.841,
+      "max": 3802.935
+    },
+    "fcpMs": {
+      "median": 2648.335,
+      "min": 2646.361,
+      "max": 2652.478
+    },
+    "cls": {
+      "median": 0,
+      "min": 0,
+      "max": 0
+    },
+    "tbtMs": {
+      "median": 635.6970000000001,
+      "min": 632.8790000000008,
+      "max": 636.9189998779298
+    },
+    "speedIndexMs": {
+      "median": 2821,
+      "min": 2820,
+      "max": 2828
+    },
+    "pageKb": {
+      "median": 858.8994140625,
+      "min": 858.8994140625,
+      "max": 858.8994140625
+    },
+    "imagesKb": {
+      "median": 624.52734375,
+      "min": 624.52734375,
+      "max": 624.52734375
+    },
+    "jsKb": {
+      "median": 232.5712890625,
+      "min": 232.5712890625,
+      "max": 232.5712890625
+    },
+    "requests": {
+      "median": 52,
+      "min": 52,
+      "max": 52
+    }
+  },
+  "visualizer": {
+    "modulesGzipKb": 450.4013671875,
+    "modulesRenderedKb": 1757.0244140625,
+    "builtJsGzipKb": 232.33203125,
+    "chunks": 1
+  }
+}
